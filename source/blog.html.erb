@@ -1,0 +1,21 @@
+
+
+<div class="p-t-160">
+  <div class="container">
+    <% 
+    require 'rubygems'
+    require 'rss'
+    require 'open-uri'
+
+    @rss = RSS::Parser.parse('https://medium.com/feed/gojekengineering')
+    %>
+    
+    <ul>
+
+    <% @rss.items.each do |item|%>
+    <li><a href="<%= item.link %>"><%="#{item.title}"%></a></li>
+    
+    <% end %>
+    </ul>
+  </div>
+</div>
